@@ -1,0 +1,15 @@
+{
+  "new_user_document_lib": {
+    "description": "New user document lib",
+    "one": "Thư viện tài liệu tu tập do Butta gợi ý cho bạn"
+  },
+  "new_user_follow_ghpg": {
+    "description": "New user follow GHPG",
+    "one": "{{.Name}} đã được kết nối với bạn",
+    "other": "{{.Name}} đã được kết nối với bạn" 
+  },
+  "new_user_manual": {
+    "description": "New user manual",
+    "one": "Hướng dẫn sử dụng MXH Phật giáo Butta"
+  }
+}
