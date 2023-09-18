@@ -6,6 +6,17 @@ import (
 	"strings"
 )
 
+type Lang string
+
+type SelectType string
+
+const (
+	One   = SelectType("one")
+	Two   = SelectType("two")
+	Many  = SelectType("many")
+	Other = SelectType("other")
+)
+
 const nestedSeparator = "."
 
 type Message struct {

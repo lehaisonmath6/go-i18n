@@ -1,13 +1,14 @@
 {
   "user_begin_livestream": {
     "description": "User begin livestream",
-    "one": "{{.Name}} đang phát trực tiếp"
+    "one": "{{.Name}} đang phát trực tiếp",
+    "other" : "Ai đó đang phát trực tiếp"
   },
   "user_comment_in_your_post": {
     "description": "User comment in your post",
     "many": "{{.Name}}, {{.Name2}}, và {{.num}} người khác đã bình luận về bài viết của bạn",
     "one": "{{.Name}} đã bình luận vào bài viết của bạn",
     "two": "{{.Name}} và {{.Name2}} đã bình luận vào bài viết của bạn",
-    "other" : "{{.Name}} đã bình luận về bài viết của bạn"
+    "other" : "Ai đó đã bình luận về bài viết của bạn"
   }
 }

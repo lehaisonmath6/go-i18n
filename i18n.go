@@ -6,10 +6,21 @@ import (
 )
 
 type localizer struct {
-	mapDataLang map[string]map[string]map[int]string
+	mapDataLang map[Lang]map[MessageID]map[int]string
 }
 
-func (m *localizer) GetMessageLang(lang string, idmessage string, templateData map[string]string, pluralcount int) (string, error) {
+func (m *localizer) GetMessageLang(lang Lang, idmessage MessageID, templateData map[string]string, selectType SelectType) (string, error) {
+	pluralcount := 0
+	switch selectType {
+	case "one":
+		pluralcount = 1
+	case "two":
+		pluralcount = 2
+	case "many":
+		pluralcount = 3
+	default:
+		pluralcount = 0
+	}
 	if m.mapDataLang == nil || m.mapDataLang[lang] == nil || m.mapDataLang[lang][idmessage] == nil {
 		return "", errors.New("Map data null")
 	}
@@ -27,7 +38,7 @@ func (m *localizer) GetMessageLang(lang string, idmessage string, templateData m
 	}
 
 	if !ok {
-		mess, ok = m.mapDataLang[lang][idmessage][pluralcount]
+		mess, ok = m.mapDataLang[lang][idmessage][0]
 	}
 	if !ok {
 		return "", errors.New("Not found message")
