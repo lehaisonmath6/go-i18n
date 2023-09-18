@@ -36,7 +36,7 @@
 
 # How it works ?
 
-1. Build i18ngen tool in [i18gen](./cmd/i18ngen/) : go build .
+1. Build i18ngen tool in [i18gen](./cmd/i18ngen/) : ```$ go build . ```
 2. Create folder lang and put all language file in this lang folder (ex vi.json,en.json,zh.json)
 3. Run tool gen: ``` $i18ngen -dir ./lang ```
 4. Tool'll generate 2 file message_id_gen.go and messasage_gen_test.go
