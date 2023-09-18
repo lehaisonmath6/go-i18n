@@ -1,4 +1,4 @@
-package test
+package main
 
 import "github.com/lehaisonmath6/go-i18n"
 

@@ -33,3 +33,39 @@
 # About tool gen i18n
 - Generate and validate all MesssageID and all language in lang folder
 - Generate test file to check valid message result
+
+# How it works ?
+
+1. Build i18ngen tool in [i18gen](./cmd/i18ngen/) : go build .
+2. Create folder lang and put all language file in this lang folder (ex vi.json,en.json,zh.json)
+3. Run tool gen: ``` $i18ngen -dir ./lang ```
+4. Tool'll generate 2 file message_id_gen.go and messasage_gen_test.go
+5. Example main code 
+```
+package main
+
+import (
+	"log/slog"
+
+	"github.com/lehaisonmath6/go-i18n"
+)
+
+func main() {
+	var message string
+	var err error
+	loc, err := i18n.NewLocalizer([]string{"/home/lehaisonmath6/go/src/github.com/lehaisonmath6/go-i18n/test/lang/en.json", "/home/lehaisonmath6/go/src/github.com/lehaisonmath6/go-i18n/test/lang/vi.json"})
+	if err != nil {
+		slog.Error("New localizer err", err)
+		return
+	}
+	templData := map[string]string{
+		".Name": "abc", ".Name2": "abc", ".num": "abc",
+	}
+	message, err = loc.GetMessageLang(EN, USER_BEGIN_LIVESTREAM, templData, i18n.Other)
+	if err != nil || message == "" {
+		slog.Error("GenMessageLang in", EN, "msg id", USER_BEGIN_LIVESTREAM, err)
+	} else {
+		slog.Info("lang", EN, "msgID", USER_BEGIN_LIVESTREAM, ":", message)
+	}
+}
+```
